@@ -6,7 +6,7 @@ def it_was_ok
   # You can use ranges (a..b) inside a where method.
   #
   # Find the id, title, and score of all movies with scores between 2 and 3.
-
+  puts "Hello"
 end
 
 def harrison_ford
