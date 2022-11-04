@@ -1112,3 +1112,395 @@ FOREIGN KEY ("movie_id")
   [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK[0m
   [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
   [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (5.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Load (0.9ms)[0m  [1m[34mSELECT "movies"."id", "movies"."title", "movies"."yr", "movies"."score" FROM "movies" WHERE "movies"."yr" BETWEEN $1 AND $2 AND "movies"."score" BETWEEN $3 AND $4[0m  [["yr", 1980], ["yr", 1989], ["score", 3.0], ["score", 5.0]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Load (0.5ms)[0m  [1m[34mSELECT "movies"."id", "movies"."title", "movies"."yr", "movies"."score" FROM "movies" WHERE "movies"."yr" BETWEEN $1 AND $2 AND "movies"."score" BETWEEN $3 AND $4[0m  [["yr", 1980], ["yr", 1989], ["score", 3.0], ["score", 5.0]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Pluck (1.2ms)[0m  [1m[34mSELECT "movies"."yr" FROM "movies" GROUP BY "movies"."yr" HAVING (Max(score) <= 8)[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Pluck (0.8ms)[0m  [1m[34mSELECT "movies"."yr" FROM "movies" GROUP BY "movies"."yr" HAVING (Max(score) <= 8)[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActor Load (4.5ms)[0m  [1m[34mSELECT "actors"."id", "actors"."name" FROM "actors" INNER JOIN "castings" ON "castings"."actor_id" = "actors"."id" INNER JOIN "movies" ON "movies"."id" = "castings"."movie_id" WHERE ('movies.title' = title) ORDER BY castings.ord[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActor Load (0.7ms)[0m  [1m[34mSELECT "actors"."id", "actors"."name" FROM "actors" INNER JOIN "castings" ON "castings"."actor_id" = "actors"."id" INNER JOIN "movies" ON "movies"."id" = "castings"."movie_id" WHERE ('movies.title' = title) ORDER BY castings.ord[0m
+  [1m[36mActor Load (0.8ms)[0m  [1m[34mSELECT "actors"."id", "actors"."name" FROM "actors" INNER JOIN "castings" ON "castings"."actor_id" = "actors"."id" INNER JOIN "movies" ON "movies"."id" = "castings"."movie_id" WHERE ('movies.title' = title) ORDER BY castings.ord[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Load (0.8ms)[0m  [1m[34mSELECT "movies"."id", "movies"."title", "movies"."yr", "movies"."score" FROM "movies" WHERE "movies"."yr" BETWEEN $1 AND $2 AND "movies"."score" BETWEEN $3 AND $4[0m  [["yr", 1980], ["yr", 1989], ["score", 3.0], ["score", 5.0]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Load (0.6ms)[0m  [1m[34mSELECT "movies"."id", "movies"."title", "movies"."yr", "movies"."score" FROM "movies" WHERE "movies"."yr" BETWEEN $1 AND $2 AND "movies"."score" BETWEEN $3 AND $4[0m  [["yr", 1980], ["yr", 1989], ["score", 3.0], ["score", 5.0]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Pluck (1.7ms)[0m  [1m[34mSELECT "movies"."yr" FROM "movies" GROUP BY "movies"."yr" HAVING (Max(score) <= 8)[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Pluck (0.6ms)[0m  [1m[34mSELECT "movies"."yr" FROM "movies" GROUP BY "movies"."yr" HAVING (Max(score) <= 8)[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActor Load (2.7ms)[0m  [1m[34mSELECT "actors"."id", "actors"."name" FROM "actors" INNER JOIN "castings" ON "castings"."actor_id" = "actors"."id" INNER JOIN "movies" ON "movies"."id" = "castings"."movie_id" WHERE "movies"."title" = $1 ORDER BY castings.ord[0m  [["title", "Star Wars"]]
+  [1m[36mActor Load (1.0ms)[0m  [1m[34mSELECT "actors"."id", "actors"."name" FROM "actors" INNER JOIN "castings" ON "castings"."actor_id" = "actors"."id" INNER JOIN "movies" ON "movies"."id" = "castings"."movie_id" WHERE "movies"."title" = $1 ORDER BY castings.ord[0m  [["title", "Forrest Gump"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActor Load (0.7ms)[0m  [1m[34mSELECT "actors"."id", "actors"."name" FROM "actors" INNER JOIN "castings" ON "castings"."actor_id" = "actors"."id" INNER JOIN "movies" ON "movies"."id" = "castings"."movie_id" WHERE "movies"."title" = $1 ORDER BY castings.ord[0m  [["title", "Star Wars"]]
+  [1m[36mActor Load (0.5ms)[0m  [1m[34mSELECT "actors"."id", "actors"."name" FROM "actors" INNER JOIN "castings" ON "castings"."actor_id" = "actors"."id" INNER JOIN "movies" ON "movies"."id" = "castings"."movie_id" WHERE "movies"."title" = $1 ORDER BY castings.ord[0m  [["title", "Forrest Gump"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Load (0.8ms)[0m  [1m[34mSELECT "movies"."id", "movies"."title", "movies"."yr", "movies"."score" FROM "movies" WHERE "movies"."yr" BETWEEN $1 AND $2 AND "movies"."score" BETWEEN $3 AND $4[0m  [["yr", 1980], ["yr", 1989], ["score", 3.0], ["score", 5.0]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Load (0.5ms)[0m  [1m[34mSELECT "movies"."id", "movies"."title", "movies"."yr", "movies"."score" FROM "movies" WHERE "movies"."yr" BETWEEN $1 AND $2 AND "movies"."score" BETWEEN $3 AND $4[0m  [["yr", 1980], ["yr", 1989], ["score", 3.0], ["score", 5.0]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Pluck (1.0ms)[0m  [1m[34mSELECT "movies"."yr" FROM "movies" GROUP BY "movies"."yr" HAVING (Max(score) <= 8)[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Pluck (0.8ms)[0m  [1m[34mSELECT "movies"."yr" FROM "movies" GROUP BY "movies"."yr" HAVING (Max(score) <= 8)[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActor Load (2.9ms)[0m  [1m[34mSELECT "actors"."id", "actors"."name" FROM "actors" INNER JOIN "castings" ON "castings"."actor_id" = "actors"."id" INNER JOIN "movies" ON "movies"."id" = "castings"."movie_id" WHERE "movies"."title" = $1 ORDER BY castings.ord[0m  [["title", "Star Wars"]]
+  [1m[36mActor Load (0.8ms)[0m  [1m[34mSELECT "actors"."id", "actors"."name" FROM "actors" INNER JOIN "castings" ON "castings"."actor_id" = "actors"."id" INNER JOIN "movies" ON "movies"."id" = "castings"."movie_id" WHERE "movies"."title" = $1 ORDER BY castings.ord[0m  [["title", "Forrest Gump"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActor Load (1.6ms)[0m  [1m[34mSELECT "actors"."id", "actors"."name" FROM "actors" INNER JOIN "castings" ON "castings"."actor_id" = "actors"."id" INNER JOIN "movies" ON "movies"."id" = "castings"."movie_id" WHERE "movies"."title" = $1 ORDER BY castings.ord[0m  [["title", "Star Wars"]]
+  [1m[36mActor Load (1.7ms)[0m  [1m[34mSELECT "actors"."id", "actors"."name" FROM "actors" INNER JOIN "castings" ON "castings"."actor_id" = "actors"."id" INNER JOIN "movies" ON "movies"."id" = "castings"."movie_id" WHERE "movies"."title" = $1 ORDER BY castings.ord[0m  [["title", "Forrest Gump"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Load (0.7ms)[0m  [1m[34mSELECT "movies".* FROM "movies" INNER JOIN "actors" ON "actors"."id" = "movies"."director_id" WHERE (movies.director_id = actors.id) AND (castings.ord = 1)[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT "movies".* FROM "movies" INNER JOIN "actors" ON "actors"."id" = "movies"."director_id" WHERE (movies.director_id = actors.id) AND (castings.ord = 1)[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Load (1.3ms)[0m  [1m[34mSELECT "movies"."id", "movies"."title", "movies"."yr", "movies"."score" FROM "movies" WHERE "movies"."yr" BETWEEN $1 AND $2 AND "movies"."score" BETWEEN $3 AND $4[0m  [["yr", 1980], ["yr", 1989], ["score", 3.0], ["score", 5.0]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Load (0.5ms)[0m  [1m[34mSELECT "movies"."id", "movies"."title", "movies"."yr", "movies"."score" FROM "movies" WHERE "movies"."yr" BETWEEN $1 AND $2 AND "movies"."score" BETWEEN $3 AND $4[0m  [["yr", 1980], ["yr", 1989], ["score", 3.0], ["score", 5.0]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Pluck (1.0ms)[0m  [1m[34mSELECT "movies"."yr" FROM "movies" GROUP BY "movies"."yr" HAVING (Max(score) <= 8)[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Pluck (0.6ms)[0m  [1m[34mSELECT "movies"."yr" FROM "movies" GROUP BY "movies"."yr" HAVING (Max(score) <= 8)[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActor Load (3.0ms)[0m  [1m[34mSELECT "actors"."id", "actors"."name" FROM "actors" INNER JOIN "castings" ON "castings"."actor_id" = "actors"."id" INNER JOIN "movies" ON "movies"."id" = "castings"."movie_id" WHERE "movies"."title" = $1 ORDER BY castings.ord[0m  [["title", "Star Wars"]]
+  [1m[36mActor Load (1.0ms)[0m  [1m[34mSELECT "actors"."id", "actors"."name" FROM "actors" INNER JOIN "castings" ON "castings"."actor_id" = "actors"."id" INNER JOIN "movies" ON "movies"."id" = "castings"."movie_id" WHERE "movies"."title" = $1 ORDER BY castings.ord[0m  [["title", "Forrest Gump"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActor Load (0.7ms)[0m  [1m[34mSELECT "actors"."id", "actors"."name" FROM "actors" INNER JOIN "castings" ON "castings"."actor_id" = "actors"."id" INNER JOIN "movies" ON "movies"."id" = "castings"."movie_id" WHERE "movies"."title" = $1 ORDER BY castings.ord[0m  [["title", "Star Wars"]]
+  [1m[36mActor Load (0.9ms)[0m  [1m[34mSELECT "actors"."id", "actors"."name" FROM "actors" INNER JOIN "castings" ON "castings"."actor_id" = "actors"."id" INNER JOIN "movies" ON "movies"."id" = "castings"."movie_id" WHERE "movies"."title" = $1 ORDER BY castings.ord[0m  [["title", "Forrest Gump"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Load (12.3ms)[0m  [1m[34mSELECT "movies"."id", "movies"."title", "actors"."name" FROM "movies" INNER JOIN "actors" ON "actors"."id" = "movies"."director_id" INNER JOIN "castings" ON "castings"."movie_id" = "movies"."id" WHERE (movies.director_id = actors.id) AND (castings.ord = 1)[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Load (6.1ms)[0m  [1m[34mSELECT "movies"."id", "movies"."title", "actors"."name" FROM "movies" INNER JOIN "actors" ON "actors"."id" = "movies"."director_id" INNER JOIN "castings" ON "castings"."movie_id" = "movies"."id" WHERE (movies.director_id = actors.id) AND (castings.ord = 1)[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Load (1.2ms)[0m  [1m[34mSELECT "movies"."id", "movies"."title", "movies"."yr", "movies"."score" FROM "movies" WHERE "movies"."yr" BETWEEN $1 AND $2 AND "movies"."score" BETWEEN $3 AND $4[0m  [["yr", 1980], ["yr", 1989], ["score", 3.0], ["score", 5.0]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Load (0.5ms)[0m  [1m[34mSELECT "movies"."id", "movies"."title", "movies"."yr", "movies"."score" FROM "movies" WHERE "movies"."yr" BETWEEN $1 AND $2 AND "movies"."score" BETWEEN $3 AND $4[0m  [["yr", 1980], ["yr", 1989], ["score", 3.0], ["score", 5.0]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Pluck (1.3ms)[0m  [1m[34mSELECT "movies"."yr" FROM "movies" GROUP BY "movies"."yr" HAVING (Max(score) <= 8)[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Pluck (0.8ms)[0m  [1m[34mSELECT "movies"."yr" FROM "movies" GROUP BY "movies"."yr" HAVING (Max(score) <= 8)[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActor Load (2.0ms)[0m  [1m[34mSELECT "actors"."id", "actors"."name" FROM "actors" INNER JOIN "castings" ON "castings"."actor_id" = "actors"."id" INNER JOIN "movies" ON "movies"."id" = "castings"."movie_id" WHERE "movies"."title" = $1 ORDER BY castings.ord[0m  [["title", "Star Wars"]]
+  [1m[36mActor Load (0.8ms)[0m  [1m[34mSELECT "actors"."id", "actors"."name" FROM "actors" INNER JOIN "castings" ON "castings"."actor_id" = "actors"."id" INNER JOIN "movies" ON "movies"."id" = "castings"."movie_id" WHERE "movies"."title" = $1 ORDER BY castings.ord[0m  [["title", "Forrest Gump"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActor Load (0.8ms)[0m  [1m[34mSELECT "actors"."id", "actors"."name" FROM "actors" INNER JOIN "castings" ON "castings"."actor_id" = "actors"."id" INNER JOIN "movies" ON "movies"."id" = "castings"."movie_id" WHERE "movies"."title" = $1 ORDER BY castings.ord[0m  [["title", "Star Wars"]]
+  [1m[36mActor Load (0.6ms)[0m  [1m[34mSELECT "actors"."id", "actors"."name" FROM "actors" INNER JOIN "castings" ON "castings"."actor_id" = "actors"."id" INNER JOIN "movies" ON "movies"."id" = "castings"."movie_id" WHERE "movies"."title" = $1 ORDER BY castings.ord[0m  [["title", "Forrest Gump"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Load (25.1ms)[0m  [1m[34mSELECT "movies"."id", "movies"."title", "actors"."name" FROM "movies" INNER JOIN "actors" ON "actors"."id" = "movies"."director_id" INNER JOIN "castings" ON "castings"."movie_id" = "movies"."id" WHERE (movies.director_id = actors.id)[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Load (24.5ms)[0m  [1m[34mSELECT "movies"."id", "movies"."title", "actors"."name" FROM "movies" INNER JOIN "actors" ON "actors"."id" = "movies"."director_id" INNER JOIN "castings" ON "castings"."movie_id" = "movies"."id" WHERE (movies.director_id = actors.id)[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Load (1.3ms)[0m  [1m[34mSELECT "movies"."id", "movies"."title", "movies"."yr", "movies"."score" FROM "movies" WHERE "movies"."yr" BETWEEN $1 AND $2 AND "movies"."score" BETWEEN $3 AND $4[0m  [["yr", 1980], ["yr", 1989], ["score", 3.0], ["score", 5.0]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Load (0.6ms)[0m  [1m[34mSELECT "movies"."id", "movies"."title", "movies"."yr", "movies"."score" FROM "movies" WHERE "movies"."yr" BETWEEN $1 AND $2 AND "movies"."score" BETWEEN $3 AND $4[0m  [["yr", 1980], ["yr", 1989], ["score", 3.0], ["score", 5.0]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Pluck (1.5ms)[0m  [1m[34mSELECT "movies"."yr" FROM "movies" GROUP BY "movies"."yr" HAVING (Max(score) <= 8)[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Pluck (0.8ms)[0m  [1m[34mSELECT "movies"."yr" FROM "movies" GROUP BY "movies"."yr" HAVING (Max(score) <= 8)[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActor Load (27.7ms)[0m  [1m[34mSELECT "actors"."id", "actors"."name" FROM "actors" INNER JOIN "castings" ON "castings"."actor_id" = "actors"."id" INNER JOIN "movies" ON "movies"."id" = "castings"."movie_id" WHERE (movies.title = title) ORDER BY castings.ord[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActor Load (22.5ms)[0m  [1m[34mSELECT "actors"."id", "actors"."name" FROM "actors" INNER JOIN "castings" ON "castings"."actor_id" = "actors"."id" INNER JOIN "movies" ON "movies"."id" = "castings"."movie_id" WHERE (movies.title = title) ORDER BY castings.ord[0m
+  [1m[36mActor Load (22.9ms)[0m  [1m[34mSELECT "actors"."id", "actors"."name" FROM "actors" INNER JOIN "castings" ON "castings"."actor_id" = "actors"."id" INNER JOIN "movies" ON "movies"."id" = "castings"."movie_id" WHERE (movies.title = title) ORDER BY castings.ord[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Load (1.0ms)[0m  [1m[34mSELECT "movies"."id", "movies"."title", "movies"."yr", "movies"."score" FROM "movies" WHERE "movies"."yr" BETWEEN $1 AND $2 AND "movies"."score" BETWEEN $3 AND $4[0m  [["yr", 1980], ["yr", 1989], ["score", 3.0], ["score", 5.0]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Load (0.5ms)[0m  [1m[34mSELECT "movies"."id", "movies"."title", "movies"."yr", "movies"."score" FROM "movies" WHERE "movies"."yr" BETWEEN $1 AND $2 AND "movies"."score" BETWEEN $3 AND $4[0m  [["yr", 1980], ["yr", 1989], ["score", 3.0], ["score", 5.0]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Pluck (1.1ms)[0m  [1m[34mSELECT "movies"."yr" FROM "movies" GROUP BY "movies"."yr" HAVING (Max(score) <= 8)[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Pluck (0.9ms)[0m  [1m[34mSELECT "movies"."yr" FROM "movies" GROUP BY "movies"."yr" HAVING (Max(score) <= 8)[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActor Load (1.7ms)[0m  [1m[34mSELECT "actors"."id", "actors"."name" FROM "actors" INNER JOIN "castings" ON "castings"."actor_id" = "actors"."id" INNER JOIN "movies" ON "movies"."id" = "castings"."movie_id" WHERE (movies.title = 'Star Wars') ORDER BY castings.ord[0m
+  [1m[36mActor Load (1.4ms)[0m  [1m[34mSELECT "actors"."id", "actors"."name" FROM "actors" INNER JOIN "castings" ON "castings"."actor_id" = "actors"."id" INNER JOIN "movies" ON "movies"."id" = "castings"."movie_id" WHERE (movies.title = 'Forrest Gump') ORDER BY castings.ord[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActor Load (3.6ms)[0m  [1m[34mSELECT "actors"."id", "actors"."name" FROM "actors" INNER JOIN "castings" ON "castings"."actor_id" = "actors"."id" INNER JOIN "movies" ON "movies"."id" = "castings"."movie_id" WHERE (movies.title = 'Star Wars') ORDER BY castings.ord[0m
+  [1m[36mActor Load (1.0ms)[0m  [1m[34mSELECT "actors"."id", "actors"."name" FROM "actors" INNER JOIN "castings" ON "castings"."actor_id" = "actors"."id" INNER JOIN "movies" ON "movies"."id" = "castings"."movie_id" WHERE (movies.title = 'Forrest Gump') ORDER BY castings.ord[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Load (1.1ms)[0m  [1m[34mSELECT "movies"."id", "movies"."title", "movies"."yr", "movies"."score" FROM "movies" WHERE "movies"."yr" BETWEEN $1 AND $2 AND "movies"."score" BETWEEN $3 AND $4[0m  [["yr", 1980], ["yr", 1989], ["score", 3.0], ["score", 5.0]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Load (0.5ms)[0m  [1m[34mSELECT "movies"."id", "movies"."title", "movies"."yr", "movies"."score" FROM "movies" WHERE "movies"."yr" BETWEEN $1 AND $2 AND "movies"."score" BETWEEN $3 AND $4[0m  [["yr", 1980], ["yr", 1989], ["score", 3.0], ["score", 5.0]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Pluck (1.1ms)[0m  [1m[34mSELECT "movies"."yr" FROM "movies" GROUP BY "movies"."yr" HAVING (Max(score) <= 8)[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Pluck (0.7ms)[0m  [1m[34mSELECT "movies"."yr" FROM "movies" GROUP BY "movies"."yr" HAVING (Max(score) <= 8)[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActor Load (1.8ms)[0m  [1m[34mSELECT "actors"."id", "actors"."name" FROM "actors" INNER JOIN "castings" ON "castings"."actor_id" = "actors"."id" INNER JOIN "movies" ON "movies"."id" = "castings"."movie_id" WHERE (movies.title = 'Star Wars') ORDER BY castings.ord[0m
+  [1m[36mActor Load (2.7ms)[0m  [1m[34mSELECT "actors"."id", "actors"."name" FROM "actors" INNER JOIN "castings" ON "castings"."actor_id" = "actors"."id" INNER JOIN "movies" ON "movies"."id" = "castings"."movie_id" WHERE (movies.title = 'Forrest Gump') ORDER BY castings.ord[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActor Load (2.5ms)[0m  [1m[34mSELECT "actors"."id", "actors"."name" FROM "actors" INNER JOIN "castings" ON "castings"."actor_id" = "actors"."id" INNER JOIN "movies" ON "movies"."id" = "castings"."movie_id" WHERE (movies.title = 'Star Wars') ORDER BY castings.ord[0m
+  [1m[36mActor Load (0.7ms)[0m  [1m[34mSELECT "actors"."id", "actors"."name" FROM "actors" INNER JOIN "castings" ON "castings"."actor_id" = "actors"."id" INNER JOIN "movies" ON "movies"."id" = "castings"."movie_id" WHERE (movies.title = 'Forrest Gump') ORDER BY castings.ord[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Load (4.2ms)[0m  [1m[34mSELECT "movies"."id", "movies"."title", "actors"."name" FROM "movies" INNER JOIN "actors" ON "actors"."id" = "movies"."director_id" INNER JOIN "castings" ON "castings"."movie_id" = "movies"."id" WHERE (movies.director_id = castings.actor_id) AND (castings.ord = 1)[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Load (4.6ms)[0m  [1m[34mSELECT "movies"."id", "movies"."title", "actors"."name" FROM "movies" INNER JOIN "actors" ON "actors"."id" = "movies"."director_id" INNER JOIN "castings" ON "castings"."movie_id" = "movies"."id" WHERE (movies.director_id = castings.actor_id) AND (castings.ord = 1)[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Load (1.0ms)[0m  [1m[34mSELECT "movies"."id", "movies"."title", "movies"."yr", "movies"."score" FROM "movies" WHERE "movies"."yr" BETWEEN $1 AND $2 AND "movies"."score" BETWEEN $3 AND $4[0m  [["yr", 1980], ["yr", 1989], ["score", 3.0], ["score", 5.0]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Load (0.6ms)[0m  [1m[34mSELECT "movies"."id", "movies"."title", "movies"."yr", "movies"."score" FROM "movies" WHERE "movies"."yr" BETWEEN $1 AND $2 AND "movies"."score" BETWEEN $3 AND $4[0m  [["yr", 1980], ["yr", 1989], ["score", 3.0], ["score", 5.0]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Pluck (1.2ms)[0m  [1m[34mSELECT "movies"."yr" FROM "movies" GROUP BY "movies"."yr" HAVING (Max(score) <= 8)[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Pluck (0.9ms)[0m  [1m[34mSELECT "movies"."yr" FROM "movies" GROUP BY "movies"."yr" HAVING (Max(score) <= 8)[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActor Load (2.6ms)[0m  [1m[34mSELECT "actors"."id", "actors"."name" FROM "actors" INNER JOIN "castings" ON "castings"."actor_id" = "actors"."id" INNER JOIN "movies" ON "movies"."id" = "castings"."movie_id" WHERE (movies.title = 'Star Wars') ORDER BY castings.ord[0m
+  [1m[36mActor Load (1.3ms)[0m  [1m[34mSELECT "actors"."id", "actors"."name" FROM "actors" INNER JOIN "castings" ON "castings"."actor_id" = "actors"."id" INNER JOIN "movies" ON "movies"."id" = "castings"."movie_id" WHERE (movies.title = 'Forrest Gump') ORDER BY castings.ord[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActor Load (1.4ms)[0m  [1m[34mSELECT "actors"."id", "actors"."name" FROM "actors" INNER JOIN "castings" ON "castings"."actor_id" = "actors"."id" INNER JOIN "movies" ON "movies"."id" = "castings"."movie_id" WHERE (movies.title = 'Star Wars') ORDER BY castings.ord[0m
+  [1m[36mActor Load (5.8ms)[0m  [1m[34mSELECT "actors"."id", "actors"."name" FROM "actors" INNER JOIN "castings" ON "castings"."actor_id" = "actors"."id" INNER JOIN "movies" ON "movies"."id" = "castings"."movie_id" WHERE (movies.title = 'Forrest Gump') ORDER BY castings.ord[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Load (9.0ms)[0m  [1m[34mSELECT "movies"."id", "movies"."title", "actors"."name" FROM "movies" INNER JOIN "actors" ON "actors"."id" = "movies"."director_id" INNER JOIN "castings" ON "castings"."movie_id" = "movies"."id" WHERE (movies.director_id = castings.actor_id) AND (castings.ord = 1)[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Load (10.8ms)[0m  [1m[34mSELECT "movies"."id", "movies"."title", "actors"."name" FROM "movies" INNER JOIN "actors" ON "actors"."id" = "movies"."director_id" INNER JOIN "castings" ON "castings"."movie_id" = "movies"."id" WHERE (movies.director_id = castings.actor_id) AND (castings.ord = 1)[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActor Load (1.6ms)[0m  [1m[34mSELECT "actors"."id", "actors"."name", COUNT(actors.name) FROM "actors" INNER JOIN "castings" ON "castings"."actor_id" = "actors"."id" INNER JOIN "movies" ON "movies"."id" = "castings"."movie_id" GROUP BY "actors"."id" HAVING (castings.ord > 1) LIMIT $1[0m  [["LIMIT", 2]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActor Load (0.3ms)[0m  [1m[34mSELECT "actors"."id", "actors"."name", COUNT(actors.name) FROM "actors" INNER JOIN "castings" ON "castings"."actor_id" = "actors"."id" INNER JOIN "movies" ON "movies"."id" = "castings"."movie_id" GROUP BY "actors"."id" HAVING (castings.ord > 1) LIMIT $1[0m  [["LIMIT", 2]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Load (0.8ms)[0m  [1m[34mSELECT "movies"."id", "movies"."title", "movies"."yr", "movies"."score" FROM "movies" WHERE "movies"."yr" BETWEEN $1 AND $2 AND "movies"."score" BETWEEN $3 AND $4[0m  [["yr", 1980], ["yr", 1989], ["score", 3.0], ["score", 5.0]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Load (0.5ms)[0m  [1m[34mSELECT "movies"."id", "movies"."title", "movies"."yr", "movies"."score" FROM "movies" WHERE "movies"."yr" BETWEEN $1 AND $2 AND "movies"."score" BETWEEN $3 AND $4[0m  [["yr", 1980], ["yr", 1989], ["score", 3.0], ["score", 5.0]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Pluck (1.1ms)[0m  [1m[34mSELECT "movies"."yr" FROM "movies" GROUP BY "movies"."yr" HAVING (Max(score) <= 8)[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Pluck (0.8ms)[0m  [1m[34mSELECT "movies"."yr" FROM "movies" GROUP BY "movies"."yr" HAVING (Max(score) <= 8)[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActor Load (4.0ms)[0m  [1m[34mSELECT "actors"."id", "actors"."name" FROM "actors" INNER JOIN "castings" ON "castings"."actor_id" = "actors"."id" INNER JOIN "movies" ON "movies"."id" = "castings"."movie_id" WHERE (movies.title = 'Star Wars') ORDER BY castings.ord[0m
+  [1m[36mActor Load (0.8ms)[0m  [1m[34mSELECT "actors"."id", "actors"."name" FROM "actors" INNER JOIN "castings" ON "castings"."actor_id" = "actors"."id" INNER JOIN "movies" ON "movies"."id" = "castings"."movie_id" WHERE (movies.title = 'Forrest Gump') ORDER BY castings.ord[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActor Load (0.9ms)[0m  [1m[34mSELECT "actors"."id", "actors"."name" FROM "actors" INNER JOIN "castings" ON "castings"."actor_id" = "actors"."id" INNER JOIN "movies" ON "movies"."id" = "castings"."movie_id" WHERE (movies.title = 'Star Wars') ORDER BY castings.ord[0m
+  [1m[36mActor Load (1.4ms)[0m  [1m[34mSELECT "actors"."id", "actors"."name" FROM "actors" INNER JOIN "castings" ON "castings"."actor_id" = "actors"."id" INNER JOIN "movies" ON "movies"."id" = "castings"."movie_id" WHERE (movies.title = 'Forrest Gump') ORDER BY castings.ord[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Load (4.2ms)[0m  [1m[34mSELECT "movies"."id", "movies"."title", "actors"."name" FROM "movies" INNER JOIN "actors" ON "actors"."id" = "movies"."director_id" INNER JOIN "castings" ON "castings"."movie_id" = "movies"."id" WHERE (movies.director_id = castings.actor_id) AND (castings.ord = 1)[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Load (3.6ms)[0m  [1m[34mSELECT "movies"."id", "movies"."title", "actors"."name" FROM "movies" INNER JOIN "actors" ON "actors"."id" = "movies"."director_id" INNER JOIN "castings" ON "castings"."movie_id" = "movies"."id" WHERE (movies.director_id = castings.actor_id) AND (castings.ord = 1)[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActor Load (1.0ms)[0m  [1m[34mSELECT "actors"."id", "actors"."name", COUNT(actors.name) FROM "actors" INNER JOIN "castings" ON "castings"."actor_id" = "actors"."id" INNER JOIN "movies" ON "movies"."id" = "castings"."movie_id" WHERE (castings.ord > 1) GROUP BY "actors"."id" LIMIT $1[0m  [["LIMIT", 2]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActor Load (0.8ms)[0m  [1m[34mSELECT "actors"."id", "actors"."name", COUNT(actors.name) FROM "actors" INNER JOIN "castings" ON "castings"."actor_id" = "actors"."id" INNER JOIN "movies" ON "movies"."id" = "castings"."movie_id" WHERE (castings.ord > 1) GROUP BY "actors"."id" LIMIT $1[0m  [["LIMIT", 2]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Load (0.9ms)[0m  [1m[34mSELECT "movies"."id", "movies"."title", "movies"."yr", "movies"."score" FROM "movies" WHERE "movies"."yr" BETWEEN $1 AND $2 AND "movies"."score" BETWEEN $3 AND $4[0m  [["yr", 1980], ["yr", 1989], ["score", 3.0], ["score", 5.0]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Load (0.5ms)[0m  [1m[34mSELECT "movies"."id", "movies"."title", "movies"."yr", "movies"."score" FROM "movies" WHERE "movies"."yr" BETWEEN $1 AND $2 AND "movies"."score" BETWEEN $3 AND $4[0m  [["yr", 1980], ["yr", 1989], ["score", 3.0], ["score", 5.0]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Pluck (1.3ms)[0m  [1m[34mSELECT "movies"."yr" FROM "movies" GROUP BY "movies"."yr" HAVING (Max(score) <= 8)[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Pluck (0.8ms)[0m  [1m[34mSELECT "movies"."yr" FROM "movies" GROUP BY "movies"."yr" HAVING (Max(score) <= 8)[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActor Load (2.0ms)[0m  [1m[34mSELECT "actors"."id", "actors"."name" FROM "actors" INNER JOIN "castings" ON "castings"."actor_id" = "actors"."id" INNER JOIN "movies" ON "movies"."id" = "castings"."movie_id" WHERE (movies.title = 'Star Wars') ORDER BY castings.ord[0m
+  [1m[36mActor Load (0.7ms)[0m  [1m[34mSELECT "actors"."id", "actors"."name" FROM "actors" INNER JOIN "castings" ON "castings"."actor_id" = "actors"."id" INNER JOIN "movies" ON "movies"."id" = "castings"."movie_id" WHERE (movies.title = 'Forrest Gump') ORDER BY castings.ord[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActor Load (1.9ms)[0m  [1m[34mSELECT "actors"."id", "actors"."name" FROM "actors" INNER JOIN "castings" ON "castings"."actor_id" = "actors"."id" INNER JOIN "movies" ON "movies"."id" = "castings"."movie_id" WHERE (movies.title = 'Star Wars') ORDER BY castings.ord[0m
+  [1m[36mActor Load (0.7ms)[0m  [1m[34mSELECT "actors"."id", "actors"."name" FROM "actors" INNER JOIN "castings" ON "castings"."actor_id" = "actors"."id" INNER JOIN "movies" ON "movies"."id" = "castings"."movie_id" WHERE (movies.title = 'Forrest Gump') ORDER BY castings.ord[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Load (5.1ms)[0m  [1m[34mSELECT "movies"."id", "movies"."title", "actors"."name" FROM "movies" INNER JOIN "actors" ON "actors"."id" = "movies"."director_id" INNER JOIN "castings" ON "castings"."movie_id" = "movies"."id" WHERE (movies.director_id = castings.actor_id) AND (castings.ord = 1)[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Load (4.6ms)[0m  [1m[34mSELECT "movies"."id", "movies"."title", "actors"."name" FROM "movies" INNER JOIN "actors" ON "actors"."id" = "movies"."director_id" INNER JOIN "castings" ON "castings"."movie_id" = "movies"."id" WHERE (movies.director_id = castings.actor_id) AND (castings.ord = 1)[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActor Load (1.2ms)[0m  [1m[34mSELECT "actors"."id", "actors"."name", COUNT(actors.name) as roles FROM "actors" INNER JOIN "castings" ON "castings"."actor_id" = "actors"."id" INNER JOIN "movies" ON "movies"."id" = "castings"."movie_id" WHERE (castings.ord > 1) GROUP BY "actors"."id" LIMIT $1[0m  [["LIMIT", 2]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActor Load (0.8ms)[0m  [1m[34mSELECT "actors"."id", "actors"."name", COUNT(actors.name) as roles FROM "actors" INNER JOIN "castings" ON "castings"."actor_id" = "actors"."id" INNER JOIN "movies" ON "movies"."id" = "castings"."movie_id" WHERE (castings.ord > 1) GROUP BY "actors"."id" LIMIT $1[0m  [["LIMIT", 2]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Load (1.0ms)[0m  [1m[34mSELECT "movies"."id", "movies"."title", "movies"."yr", "movies"."score" FROM "movies" WHERE "movies"."yr" BETWEEN $1 AND $2 AND "movies"."score" BETWEEN $3 AND $4[0m  [["yr", 1980], ["yr", 1989], ["score", 3.0], ["score", 5.0]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Load (0.7ms)[0m  [1m[34mSELECT "movies"."id", "movies"."title", "movies"."yr", "movies"."score" FROM "movies" WHERE "movies"."yr" BETWEEN $1 AND $2 AND "movies"."score" BETWEEN $3 AND $4[0m  [["yr", 1980], ["yr", 1989], ["score", 3.0], ["score", 5.0]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Pluck (1.1ms)[0m  [1m[34mSELECT "movies"."yr" FROM "movies" GROUP BY "movies"."yr" HAVING (Max(score) <= 8)[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Pluck (0.7ms)[0m  [1m[34mSELECT "movies"."yr" FROM "movies" GROUP BY "movies"."yr" HAVING (Max(score) <= 8)[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActor Load (1.9ms)[0m  [1m[34mSELECT "actors"."id", "actors"."name" FROM "actors" INNER JOIN "castings" ON "castings"."actor_id" = "actors"."id" INNER JOIN "movies" ON "movies"."id" = "castings"."movie_id" WHERE (movies.title = 'Star Wars') ORDER BY castings.ord[0m
+  [1m[36mActor Load (1.0ms)[0m  [1m[34mSELECT "actors"."id", "actors"."name" FROM "actors" INNER JOIN "castings" ON "castings"."actor_id" = "actors"."id" INNER JOIN "movies" ON "movies"."id" = "castings"."movie_id" WHERE (movies.title = 'Forrest Gump') ORDER BY castings.ord[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActor Load (0.8ms)[0m  [1m[34mSELECT "actors"."id", "actors"."name" FROM "actors" INNER JOIN "castings" ON "castings"."actor_id" = "actors"."id" INNER JOIN "movies" ON "movies"."id" = "castings"."movie_id" WHERE (movies.title = 'Star Wars') ORDER BY castings.ord[0m
+  [1m[36mActor Load (0.8ms)[0m  [1m[34mSELECT "actors"."id", "actors"."name" FROM "actors" INNER JOIN "castings" ON "castings"."actor_id" = "actors"."id" INNER JOIN "movies" ON "movies"."id" = "castings"."movie_id" WHERE (movies.title = 'Forrest Gump') ORDER BY castings.ord[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Load (4.3ms)[0m  [1m[34mSELECT "movies"."id", "movies"."title", "actors"."name" FROM "movies" INNER JOIN "actors" ON "actors"."id" = "movies"."director_id" INNER JOIN "castings" ON "castings"."movie_id" = "movies"."id" WHERE (movies.director_id = castings.actor_id) AND (castings.ord = 1)[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Load (3.6ms)[0m  [1m[34mSELECT "movies"."id", "movies"."title", "actors"."name" FROM "movies" INNER JOIN "actors" ON "actors"."id" = "movies"."director_id" INNER JOIN "castings" ON "castings"."movie_id" = "movies"."id" WHERE (movies.director_id = castings.actor_id) AND (castings.ord = 1)[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActor Load (24.7ms)[0m  [1m[34mSELECT "actors"."id", "actors"."name", COUNT(actors.name) as roles FROM "actors" INNER JOIN "castings" ON "castings"."actor_id" = "actors"."id" INNER JOIN "movies" ON "movies"."id" = "castings"."movie_id" WHERE (castings.ord > 1) GROUP BY "actors"."id" ORDER BY roles DESC LIMIT $1[0m  [["LIMIT", 2]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActor Load (13.6ms)[0m  [1m[34mSELECT "actors"."id", "actors"."name", COUNT(actors.name) as roles FROM "actors" INNER JOIN "castings" ON "castings"."actor_id" = "actors"."id" INNER JOIN "movies" ON "movies"."id" = "castings"."movie_id" WHERE (castings.ord > 1) GROUP BY "actors"."id" ORDER BY roles DESC LIMIT $1[0m  [["LIMIT", 2]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
